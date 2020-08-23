@@ -1,22 +1,19 @@
 class Task
-  attr_acessor :name, :description, :details
+  attr_acessor :name, :description, :details, :status
 
-  def initialize(name, description, details = {date: nil, duration: nil, type: nil, priority: nil})
+  def initialize(name, description,
+                 details = { date: nil, duration: nil, type: nil, priority: nil })
     @name = name
     @description = description
     @details = details
-    @status = "to do"
-  end
-
-  def status
-    @status
+    @status = 'to do'
   end
 
   def mark_as_done!
-    @status = "done"
+    @status = 'done'
   end
 
   def mark_as_doing!
-    @status = "doing"
+    @status = 'doing'
   end
 end

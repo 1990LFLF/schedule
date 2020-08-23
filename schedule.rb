@@ -13,7 +13,7 @@ class Schedule
     # cada
   end
 
-  def refres
+  def refresh
     create
   end
 end
