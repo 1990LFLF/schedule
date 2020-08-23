@@ -1,10 +1,12 @@
-# teste
+require 'date'
+
+attr_accessor :options, :date
 
 class Schedule
-  def initialize(work_time, start_time, total_time)
-    @work_time = work_time
-    @total_time = total_time
-    @start_time = start_time
+  def initialize(repository, options = { work_time: nil, start_time: nil, total_time: nil })
+    @options = options
+    @date = Date.today
+    @repo = repository
   end
 
   def create

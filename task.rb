@@ -1,11 +1,9 @@
 class Task
-  attr_acessor :name, :description, :details, :status
+  attr_accessor :options
+  attr_reader :status
 
-  def initialize(name, description,
-                 details = { date: nil, duration: nil, type: nil, priority: nil })
-    @name = name
-    @description = description
-    @details = details
+  def initialize(options = { name: nil, description: nil, date: nil, duration: nil, type: nil, priority: nil })
+    @options = options
     @status = 'to do'
   end
 
@@ -15,5 +13,10 @@ class Task
 
   def mark_as_doing!
     @status = 'doing'
+  end
+
+  def update(options = { name: nil, description: nil, date: nil, duration: nil, type: nil, priority: nil })
+    options.each { |k, v| @options[k] = v unless v.nil? }
+    self
   end
 end
